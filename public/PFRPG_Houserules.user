@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document signature="Hero Lab Data">
+  <thing id="pFinDexDmg" name="Finesse Dex to Damage" description="Applies modifier to Light and Finesse weapons to represent Dex to Attack and Damage as a base feature." compset="InPlay" uniqueness="unique">
+    <tag group="Helper" tag="NoIncr"/>
+    <eval phase="Final"><![CDATA[
+      ~ If we're disabled, do nothing
+      doneif (tagis[Helper.FtDisable] <> 0)
+
+      ~figure out the difference between our DEX and STR modifiers (minimum 0, since the feat says "can", not "must")
+      field[abValue].value += maximum(#attrmod[aDEX] - #attrmod[aSTR], 0)
+
+      ~ Otherwise, go through to all light weapons on the hero and replace their Strength bonuses to Hit and Damage with Dex bonuses... Also apply the piercing weapon tag so we count for precise strike.
+      foreach pick in hero from BaseWep where "wClass.Light"
+        eachpick.field[wAttBonus].value += field[abValue].value
+        eachpick.field[wDamBonus].value += field[abValue].value
+        nexteach
+
+      foreach pick in hero from BaseWep where "Helper.Finesse"
+        eachpick.field[wAttBonus].value += field[abValue].value
+        eachpick.field[wDamBonus].value += field[abValue].value
+        nexteach]]></eval>
+    </thing>
+  <thing id="wDerScim" name="Scimitar, Dervish" compset="Weapon">
+    <fieldval field="gWeight" value="4"/>
+    <fieldval field="gSizeCost" value="75"/>
+    <tag group="wClass" tag="OneHanded" name="One-Handed" abbrev="One-Handed"/>
+    <tag group="wCritMin" tag="18" name="18" abbrev="18"/>
+    <tag group="wCritMult" tag="2" name="2" abbrev="2"/>
+    <tag group="wFtrGroup" tag="BladeHeavy" name="Blades, Heavy" abbrev="Blades, Heavy"/>
+    <tag group="wGroup" tag="cHelpDrd" name="Druid" abbrev="Druid"/>
+    <tag group="wMain" tag="1d6_5" name="1d6" abbrev="1d6"/>
+    <tag group="wProfReq" tag="Martial" name="Martial" abbrev="Martial"/>
+    <tag group="wType" tag="S" name="Slashing" abbrev="S"/>
+    <tag group="EquipType" tag="Metal" name="Metal" abbrev="Metal"/>
+    <tag group="wCategory" tag="Melee" name="Melee Weapon" abbrev="Melee"/>
+    <tag group="Helper" tag="Finesse"/>
+    <tag group="IsWeapon" tag="wScimitar"/>
+    </thing>
+  <thing id="arRgrFldAg" name="Field Agent" compset="ClassVary" uniqueness="unique">
+    <tag group="AbReplace" tag="cRgrEndur"/>
+    <tag group="AbReplace" tag="cRgrTrack"/>
+    <tag group="AbReplace" tag="cS20WildEm"/>
+    <tag group="AbReplace" tag="cWoodStrid"/>
+    <tag group="ClassSkill" tag="skBluff"/>
+    <tag group="ClassSkill" tag="skDisable"/>
+    <tag group="ClassSkill" tag="skSenseMot"/>
+    <tag group="NotClassSk" tag="skHandleAn"/>
+    <tag group="NotClassSk" tag="skHeal"/>
+    <tag group="NotClassSk" tag="skKnowNat"/>
+    <tag group="ClVaryName" tag="AppParen"/>
+    <tag group="NotClassSk" tag="skKnowDun"/>
+    <tag group="ClassSkill" tag="skSleight"/>
+    <tag group="NotClassSk" tag="skSpellcr"/>
+    <tag group="ClassSkill" tag="skDiplo"/>
+    <tag group="AllowCust" tag="cHelpClr"/>
+    <bootstrap thing="cRogSkLiar">
+      <autotag group="ClSpecWhen" tag="1"/>
+      </bootstrap>
+    <bootstrap thing="cAsnPoison">
+      <autotag group="ClSpecWhen" tag="3"/>
+      </bootstrap>
+    <bootstrap thing="cRngSmstry">
+      <autotag group="ClSpecWhen" tag="7"/>
+      </bootstrap>
+    <bootstrap thing="cRogTrapfn">
+      <autotag group="ClSpecWhen" tag="1"/>
+      </bootstrap>
+    <link linkage="varies" thing="cHelpRgr"/>
+    </thing>
+  <thing id="cRngSmstry" name="Shadowmastery" description="This ability allows a field agent to move at any speed using the Stealth skill without penalty." compset="ClSpecial" summary="You may move at full speed while using the Stealth skill without penalty.">
+    <tag group="AbilType" tag="Extra"/>
+    </thing>
+  <thing id="fImpDisHR" name="Improved Disarm" description="You are skilled at knocking weapons from a foe&apos;s grasp.\n\n{b}Prerequisite{/b}: Int 13.\n\n{b}Benefit{/b}: You do not provoke an attack of opportunity when performing a disarm combat maneuver. In addition, you receive a +2 bonus on checks made to disarm a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to disarm you.\n\n{b}Normal{/b}: You provoke an attack of opportunity when performing a disarm combat maneuver." compset="Feat" summary="Disarm at +2, without an attack of opportunity." replaces="fImpDis" uniqueness="useronce">
+    <tag group="BonusFor" tag="ManFeatImp" name="Maneuver Feat, Improved" abbrev="Maneuver Feat, Improved"/>
+    <tag group="BonusFor" tag="Monk6" name="Monk Level 6" abbrev="Monk Level 6"/>
+    <tag group="Helper" tag="ShowSpec" name="ShowSpec" abbrev="ShowSpec"/>
+    <tag group="fCategory" tag="Combat" name="Combat" abbrev="Combat"/>
+    <tag group="HasFeat" tag="fImpDis"/>
+    <eval phase="Final" priority="10000">~add a +2 bonus to the Disarm maneuver (both CMB and CMD)
+      hero.child[manDisarm].field[manBonus].value += 2</eval>
+    <exprreq message="Intelligence 13 required." iserror="no"><![CDATA[child[aINT].field[aFinalVal].value >= 13]]></exprreq>
+    </thing>
+  <thing id="shBuckW" name="Buckler, Wooden" description="This small metal shield is worn strapped to your forearm. You can use a bow or crossbow without penalty while carrying it. You can also use your shield arm to wield a weapon (whether you are using an off-hand weapon or using your off hand to help wield a two-handed weapon), but you take a -1 penalty on attack rolls while doing so. This penalty stacks with those that may apply for fighting with your off hand and for fighting with two weapons. In any case, if you use a weapon in your off hand, you lose the buckler&apos;s AC bonus until your next turn. You can cast a spell with somatic components using your shield arm, but you lose the buckler&apos;s AC bonus until your next turn. You can&apos;t make a shield bash with a buckler." compset="Armor" summary="Small wooden shield">
+    <fieldval field="gWeight" value="5"/>
+    <fieldval field="gSizeCost" value="15"/>
+    <tag group="ArmorCheck" tag="1" name="1" abbrev="1"/>
+    <tag group="ArmorClass" tag="Shield" name="Shield" abbrev="Shield"/>
+    <tag group="ArmorMaxDx" tag="1000" name="1000" abbrev="1000"/>
+    <tag group="ShldClass" tag="Buckler" name="Buckler" abbrev="Buckler"/>
+    <tag group="ArmorAC" tag="1" name="1" abbrev="1"/>
+    <tag group="ArmorArcFl" tag="5" name="5" abbrev="5"/>
+    <tag group="EquipType" tag="Wood"/>
+    <eval phase="PreLevel" priority="10000"><![CDATA[
+      ~ Work out if we're equipped, or, if we're the child of a magic item, if
+      ~ our parent is equipped
+      var result as number
+      result = field[gIsEquip].value
+      if (container.ishero = 0) then
+        result += container.parent.field[gIsEquip].value
+        endif
+
+      ~ Taking an off-hand is ok with this shield, but you get -1 to hit
+      if (result <> 0) then
+        result = hero.assign[Hero.ShldOffOK]
+        result = hero.assign[Hero.OffShlP1]
+        endif]]></eval>
+    </thing>
+  <thing id="anDrgBlkWy" name="Dragon, Black, Wyrmling" compset="AnimalComp">
+    <fieldval field="rDescript" value="Hissing green acid drips from the fanged maw of this black-scaled, horned dragon."/>
+    <fieldval field="rEnviron" value="Warm marshes, jungle"/>
+    <fieldval field="rOrgan" value="Solitary"/>
+    <fieldval field="rTreasure" value="None - N/A"/>
+    <arrayval field="anSTR" index="0" value="1"/>
+    <arrayval field="anDEX" index="0" value="6"/>
+    <arrayval field="anCON" index="0" value="3"/>
+    <arrayval field="anINT" index="0" value="-2"/>
+    <arrayval field="anWIS" index="0" value="1"/>
+    <arrayval field="anCHA" index="0" value="-2"/>
+    <arrayval field="anSpeed" index="0" value="60"/>
+    <arrayval field="anNatural" index="0" value="3"/>
+    <tag group="IsRace" tag="rWlinBlack"/>
+    <tag group="Race" tag="rWlinBlack"/>
+    <tag group="Language" tag="lAboleth"/>
+    <tag group="Language" tag="lAbyssal"/>
+    <tag group="Language" tag="lAdlet"/>
+    <tag group="Language" tag="lAklo"/>
+    <tag group="Language" tag="Any"/>
+    <tag group="Language" tag="lAquan"/>
+    <tag group="Language" tag="lAuran"/>
+    <tag group="Language" tag="lAzlanti"/>
+    <tag group="Language" tag="lBoggard"/>
+    <tag group="Language" tag="lCatfolk"/>
+    <tag group="Language" tag="lCelestial"/>
+    <tag group="Language" tag="lPFChelaxi"/>
+    <tag group="Language" tag="lChemComm"/>
+    <tag group="Language" tag="lCommonND"/>
+    <tag group="Language" tag="lCommon"/>
+    <tag group="Language" tag="lCyclops"/>
+    <tag group="Language" tag="lDziriak"/>
+    <tag group="Language" tag="lDaemonic"/>
+    <tag group="Language" tag="lDarkFolk"/>
+    <tag group="Language" tag="lCDhak"/>
+    <tag group="Language" tag="lDraconic"/>
+    <tag group="Language" tag="lDrowSign"/>
+    <tag group="Language" tag="lDruidic"/>
+    <tag group="Language" tag="lDwarven"/>
+    <tag group="Language" tag="lElven"/>
+    <tag group="Language" tag="lEttin"/>
+    <tag group="Language" tag="lFlailSnai"/>
+    <tag group="Language" tag="lGaruda"/>
+    <tag group="Language" tag="lGiant"/>
+    <tag group="Language" tag="lGirtablil"/>
+    <tag group="Language" tag="lGnoll"/>
+    <tag group="Language" tag="lGnome"/>
+    <tag group="Language" tag="lGoblin"/>
+    <tag group="Language" tag="lGLS"/>
+    <tag group="Language" tag="lGrippli"/>
+    <tag group="Language" tag="lHalfling"/>
+    <tag group="Language" tag="lPFHallit"/>
+    <tag group="Language" tag="lIgnan"/>
+    <tag group="Language" tag="lInfernal"/>
+    <tag group="Language" tag="lJistka"/>
+    <tag group="Language" tag="lKech"/>
+    <tag group="Language" tag="lKelish"/>
+    <tag group="Language" tag="lNecril"/>
+    <tag group="Language" tag="lcOldGian"/>
+    <tag group="Language" tag="lOrc"/>
+    <tag group="Language" tag="lOrvian"/>
+    <tag group="Language" tag="lOsiriani"/>
+    <tag group="Language" tag="lOsiriaAnc"/>
+    <tag group="Language" tag="lOther"/>
+    <tag group="Language" tag="lPlaFungi"/>
+    <tag group="Language" tag="lPlaGourds"/>
+    <tag group="Language" tag="lPlaSeawee"/>
+    <tag group="Language" tag="lPlaTree"/>
+    <tag group="Language" tag="lPolyglot"/>
+    <tag group="Language" tag="lProtean"/>
+    <tag group="Language" tag="lSahaugin"/>
+    <tag group="Language" tag="lSasquatch"/>
+    <tag group="Language" tag="lShadowton"/>
+    <tag group="Language" tag="lShae"/>
+    <tag group="Language" tag="lPFShoanti"/>
+    <tag group="Language" tag="lPFSkald"/>
+    <tag group="Language" tag="lSphinx"/>
+    <tag group="Language" tag="lPFStrix"/>
+    <tag group="Language" tag="lSylvan"/>
+    <tag group="Language" tag="lTakritani"/>
+    <tag group="Language" tag="lTanuki"/>
+    <tag group="Language" tag="lTengu"/>
+    <tag group="Language" tag="lTerran"/>
+    <tag group="Language" tag="lPFThassil"/>
+    <tag group="Language" tag="lThriae"/>
+    <tag group="Language" tag="lTien"/>
+    <tag group="Language" tag="lTreant"/>
+    <tag group="Language" tag="lUndercomm"/>
+    <tag group="Language" tag="lVanaran"/>
+    <tag group="Language" tag="lPFVarisia"/>
+    <tag group="Language" tag="lVegepygmy"/>
+    <tag group="Language" tag="lVishkanya"/>
+    <tag group="Language" tag="lVudrani"/>
+    <tag group="Language" tag="lWorg"/>
+    <tag group="Language" tag="lYithian"/>
+    <tag group="Language" tag="lwdKitchen"/>
+    <tag group="HasType" tag="tpDragon"/>
+    <tag group="RaceSize" tag="Tiny12"/>
+    <tag group="Helper" tag="NotHum"/>
+    <tag group="CompList" tag="arDrdDrago"/>
+    <tag group="Helper" tag="Quadruped"/>
+    <bootstrap thing="wClaw">
+      <autotag group="wMain" tag="1d3_3"/>
+      <autotag group="Value" tag="2"/>
+      </bootstrap>
+    <bootstrap thing="xImmAcid"></bootstrap>
+    <bootstrap thing="rBlindsen">
+      <autotag group="Value" tag="60"/>
+      </bootstrap>
+    <bootstrap thing="raDarkVis">
+      <autotag group="Value" tag="120"/>
+      </bootstrap>
+    <bootstrap thing="raDrSenses"></bootstrap>
+    <bootstrap thing="raDrBreath">
+      <autotag group="BloodEner" tag="Acid"/>
+      </bootstrap>
+    <bootstrap thing="raWaBreath"></bootstrap>
+    <bootstrap thing="stWater"></bootstrap>
+    <bootstrap thing="xFly">
+      <autotag group="Maneuver" tag="Average"/>
+      <autotag group="Value" tag="100"/>
+      </bootstrap>
+    <bootstrap thing="xSwim">
+      <autotag group="Value" tag="60"/>
+      </bootstrap>
+    <bootstrap thing="lDraconic"></bootstrap>
+    <bootstrap thing="wBite">
+      <autotag group="wMain" tag="1d4_4"/>
+      <autotag group="Value" tag="1"/>
+      </bootstrap>
+    <eval phase="PreLevel" priority="4000" index="2">#skillinnate[skFly] += 4
+      #skillinnate[skHandleAn] += 4
+      #skillinnate[skPercep] += 4
+      #skillinnate[skStealth] += 4
+      #skillinnate[skSwim] += 4
+      <before name="Skill Bonus Feats"/>
+      </eval>
+    <eval phase="Final" priority="110000" index="3">~ Dragons have spell like abilities of CL = to TOTAL (not racial) hit dice
+      var CL as number
+      CL = herofield[tHitDice].value
+      field[rSpCastLev].value = CL</eval>
+    <eval phase="PreLevel" priority="9900"><![CDATA[var Lrange as number
+      Lrange = 30
+
+~ Manually change the damage dice for each age category, since this does not depend on size.
+
+      hero.child[raDrBreath].field[livename].text = "Breath Weapon (" & Lrange & "-ft. line, 2d6 acid, every 1d4 rounds, Ref half)"]]></eval>
+    </thing>
+  <thing id="spDim0" name="Dim" description="{i}Dim{/i} creates an aura that hampers normal, non-magical light sources. The spell may be cast upon an object, which then radiates the dimming aura, or a point in space from which the aura is emitted.  This aura causes the illumination level in the area to drop one step, from bright to normal, or normal to dim (or shadowy) illumination.  This spell has no effect in an area that is already dark or dim.  This spell never causes the illumination level to increase in its area of effect.  All creatures gain concealment (20% miss chance) in dim light. Creatures with darkvision can see in an area of dim light without penalty.\n\nThis spell has no effect on light generated by magical light sources of any level. The effect is immobile, but it can be cast on a movable object.  If darkness is cast on a small object that is then placed inside or under a lightproof covering, the spell&apos;s effect is blocked until the covering is removed.\n\nThis spell does not stack with itself.  {i}Dim{/i} cannot be used to counter or dispel any light spell.\n\nAny spell of any level with the light descriptor counters and dispels this spell." compset="Spell" summary="Reduces nonmagical">
+    <fieldval field="sTarget" value="object touched"/>
+    <fieldval field="sSave" value="None"/>
+    <fieldval field="sResist" value="No"/>
+    <fieldval field="sDuration" value="10 minutes"/>
+    <tag group="sClass" tag="cHelpInq" name="Inquisitor" abbrev="Inquisitor"/>
+    <tag group="sClass" tag="cHelpSum" name="Summoner" abbrev="Summoner"/>
+    <tag group="sClass" tag="cHelpWit" name="Witch" abbrev="Witch"/>
+    <tag group="sComp" tag="S" name="Somatic" abbrev="{ref s_S}S{ref}"/>
+    <tag group="sComp" tag="V" name="Verbal" abbrev="{ref s_V}V{ref}"/>
+    <tag group="sLevel" tag="0" name="0" abbrev="0"/>
+    <tag group="sRange" tag="Touch" name="Touch" abbrev="{ref s_Touch}Tch{ref}"/>
+    <tag group="sCastTime" tag="Action1" name="1 action" abbrev="1 action"/>
+    <tag group="sClass" tag="cHelpAdp" name="Adept" abbrev="Adept"/>
+    <tag group="sClass" tag="cHelpClr" name="Cleric" abbrev="Cleric"/>
+    <tag group="sSchool" tag="Evocation"/>
+    <tag group="sDescript" tag="Darkness"/>
+    <tag group="Helper" tag="NoAutoBook"/>
+    <tag group="sClass" tag="cHelpDrd" name="Druid" abbrev="Druid"/>
+    <tag group="sDuration" tag="10Minute"/>
+    <tag group="sSave" tag="None"/>
+    <tag group="sResist" tag="No"/>
+    </thing>
+  <thing id="spCreaIce0" name="Create Ice" description="This spell generates a sheet of clear, pure ice. Enough ice is generated to cover one 5-foot square, which is treated as difficult terrain. This ice melts after 1 hour (the ice melts into roughly 16 gallons of water, weighing 120 lbs), or 10 minutes in hot terrain." compset="Spell" summary="Creates 25 square feet of ice.">
+    <fieldval field="sEffect" value="one 5-ft-square of ice"/>
+    <fieldval field="sDuration" value="Instantaneous"/>
+    <fieldval field="sSave" value="none"/>
+    <fieldval field="sResist" value="No"/>
+    <tag group="sClass" tag="cHelpSum" name="Summoner" abbrev="Summoner"/>
+    <tag group="sClass" tag="cHelpWiz" name="Wizard" abbrev="Wizard"/>
+    <tag group="sComp" tag="S" name="Somatic" abbrev="{ref s_S}S{ref}"/>
+    <tag group="sComp" tag="V" name="Verbal" abbrev="{ref s_V}V{ref}"/>
+    <tag group="sDuration" tag="Instant" name="Instantaneous" abbrev="Instantaneous"/>
+    <tag group="sLevel" tag="0" name="0" abbrev="0"/>
+    <tag group="sRange" tag="Close" name="Close" abbrev="{ref s_Close}Cls{ref}"/>
+    <tag group="sResist" tag="No" name="No" abbrev="No"/>
+    <tag group="sSave" tag="None" name="None" abbrev="None"/>
+    <tag group="sSchool" tag="Conjur" name="Conjuration" abbrev="Conjur"/>
+    <tag group="sSubschool" tag="Creation" name="Creation" abbrev="Creation"/>
+    <tag group="sCastTime" tag="Action1" name="1 action" abbrev="1 action"/>
+    <tag group="sClass" tag="cHelpInq" name="Inquisitor" abbrev="Inquisitor"/>
+    <tag group="sClass" tag="cHelpMag" name="Magus" abbrev="Magus"/>
+    <tag group="sClass" tag="cHelpSor" name="Sorcerer" abbrev="Sorcerer"/>
+    <tag group="sSchool" tag="Water"/>
+    <tag group="sDescript" tag="Cold"/>
+    <tag group="sClass" tag="cHelpAdp"/>
+    <tag group="sClass" tag="Cleric"/>
+    <tag group="sClass" tag="cHelpDrd"/>
+    <tag group="sClass" tag="cHelpPst"/>
+    </thing>
+  <thing id="fPrecShtH" name="Precise Shot" description="You are adept at firing ranged attacks into melee.{br}{br}{b}Prerequisite{/b}: Point-Blank Shot.{br}{br}{b}Benefit{/b}: You can shoot or throw ranged weapons at an opponent engaged in melee without taking the standard –4 penalty on your attack roll." compset="Feat" summary="You don&apos;t get -4 to hit when shooting or throwing into combat." replaces="fPrecShot" uniqueness="useronce">
+    <tag group="BonusFor" tag="RgrArch1" name="Ranger Archery Style Level 1" abbrev="Ranger Archery Style Level 1"/>
+    <tag group="Helper" tag="ShowSpec" name="Show Spec" abbrev="Show Spec"/>
+    <tag group="fCategory" tag="Combat" name="Combat" abbrev="Combat"/>
+    <tag group="HasFeat" tag="fPointBlnk"/>
+    </thing>
+  <thing id="spForceSpk" name="Force Spikes" description="You create one or more shimmering spikes, made purely of force, which you can direct at creatures. You create one spike per level (maximum of 10 spikes). You fire all the spikes at the same time and can divide them among potential targets as you see fit. Each spike deals 1d6 points of force damage.\n\nIn addition, the spikes remain in the creature and while they do not continue to deal damage, the spikes anchor themselves ethereally and hold the creature in place. One such spike entangles the target (as per the entangled condition), three spikes grapples the target, and five spikes pins the target. The creature can escape from the spikes as a standard action by making a combat maneuver or Escape Artist check (DC equal to 10 + your caster level plus your relevant caster ability modifier; this does not provoke an attack of opportunity). A successful saving throw negates the entangled, grappled, and pinned condition but does not reduce the damage." compset="Spell">
+    <fieldval field="sRange" value="Medium (100 ft. + 10 ft./level)"/>
+    <fieldval field="sTarget" value="one creature/level (maximum of 10), no two of which can be more than 30 ft. apart"/>
+    <fieldval field="sDuration" value="1 round/level"/>
+    <fieldval field="sSave" value="Reflex partial"/>
+    <fieldval field="sResist" value="Yes"/>
+    <fieldval field="sCompCost" value="2 gp"/>
+    <fieldval field="sCompDesc" value="a platinum pin"/>
+    <tag group="sRange" tag="Medium"/>
+    <tag group="sClass" tag="cHelpWiz"/>
+    <tag group="sLevel" tag="3"/>
+    <tag group="sDuration" tag="Round"/>
+    <tag group="sDuration" tag="PerLevel"/>
+    <tag group="sCastTime" tag="Action1"/>
+    <tag group="sSave" tag="RefPart"/>
+    <tag group="sSchool" tag="Evocation"/>
+    <tag group="sResist" tag="Yes"/>
+    <tag group="sDescript" tag="Force"/>
+    <tag group="SpellEff" tag="DamForce"/>
+    <tag group="SpellEff" tag="NegEntang"/>
+    <tag group="sComp" tag="V"/>
+    <tag group="sComp" tag="S"/>
+    <tag group="sComp" tag="M"/>
+    <tag group="sClass" tag="cHelpDrd"/>
+    <tag group="sClass" tag="cHelpSor"/>
+    </thing>
+  <thing id="pWpFinesse" name="Base Weapon Finesse" description="Applies modifier to Light and Finesse weapons to represent Dex to Attack as a base feature." compset="InPlay" uniqueness="unique">
+    <tag group="Helper" tag="NoIncr" name="NoIncr" abbrev="NoIncr"/>
+    <eval phase="Final"><![CDATA[
+      ~ If we're disabled, do nothing
+      doneif (tagis[Helper.FtDisable] <> 0)
+
+      ~figure out the difference between our DEX and STR modifiers (minimum 0, since the feat says "can", not "must")
+      field[abValue].value += maximum(#attrmod[aDEX] - #attrmod[aSTR], 0)
+
+      ~ Otherwise, go through to all light weapons on the hero and replace their Strength bonuses to Hit and Damage with Dex bonuses... Also apply the piercing weapon tag so we count for precise strike.
+      foreach pick in hero from BaseWep where "wClass.Light"
+        eachpick.field[wAttBonus].value += field[abValue].value
+        nexteach
+
+      foreach pick in hero from BaseWep where "Helper.Finesse"
+        eachpick.field[wAttBonus].value += field[abValue].value
+        nexteach]]></eval>
+    </thing>
+  <thing id="fAgStrike" name="Adroit Strike" description="You are trained in using your agility in melee combat, as opposed to brute strength.\n\n{b}Benefit{/b}: With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on damage rolls. If you carry a shield, its armor check penalty applies to your damage rolls.\n\n{b}Special{/b}: Natural weapons are considered light weapons." compset="Feat" summary="With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on damage rolls." uniqueness="useronce">
+    <tag group="fCategory" tag="Combat" name="Combat" abbrev="Combat"/>
+    <eval phase="PostAttr" priority="10000"><![CDATA[
+      ~ If we're disabled, do nothing
+      doneif (tagis[Helper.FtDisable] <> 0)
+
+      ~figure out the difference between our DEX and STR modifiers (minimum 0, since the feat says "can", not "must")
+      field[abValue].value += maximum(#attrmod[aDEX] - #attrmod[aSTR], 0)
+
+      ~ Otherwise, go through to all light weapons on the hero and replace their Strength bonuses to Damage with Dex bonuses...
+      foreach pick in hero from BaseWep where "wClass.Light"
+        eachpick.field[wDamBonus].value += field[abValue].value
+        nexteach
+
+      foreach pick in hero from BaseWep where "Helper.Finesse"
+        eachpick.field[wDamBonus].value += field[abValue].value
+        nexteach]]></eval>
+    </thing>
+  </document>

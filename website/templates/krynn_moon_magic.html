@@ -1,0 +1,47 @@
+{% load cms_tags sekizai_tags staticfiles %}
+
+{% addtoblock "css" %}
+<style type="text/css">
+    #moon_magic_wrap {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: x-large;
+    }
+    #moon_magic > p:nth-child(1) {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+    #calendar_forms form {
+        display: inline;
+    }
+</style>
+{% endaddtoblock %}
+
+<div style="display: flex;">
+<div id="moon_magic_wrap" {% if reveal_file %}style="margin-right: 135px;"{% endif %}>
+    <span id="calendar_forms">
+    <form id="prev_date_input" action="/dragonlance/moon-magic/" method="GET">
+        <input type="submit" name="date" id="getnewdate" value="{{prev_date}}" />
+    </form>
+    <form id="date_input" action="/dragonlance/moon-magic/" method="GET">
+        <label>New Date: <input id="newdate" name="date" type="text" value="{{request.GET.date}}" placeholder="yyy-mm-dd" /></label>
+        <input type="submit" id="getnewdate" value="Change Date" />
+    </form>
+    <form id="next_date_input" action="/dragonlance/moon-magic/" method="GET">
+        <input type="submit" name="date" id="getnewdate" value="{{next_date}}" />
+    </form>
+    </span>
+    <div id="moon_magic">{{moon_magic|linebreaks}}</div>
+</div>
+{% if reveal_file %}
+    <div>
+        <img src="/reveal/reveal-{{view_date}}.png">
+    </div>
+{% endif %}
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#getnewdate").click(function() {
+            location.assign('/moon-magic/?date='+$("#newdate").val());
+        })
+    })
+</script>

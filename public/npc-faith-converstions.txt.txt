@@ -1,0 +1,17 @@
+Converting NPCs and Cohorts to Your Faith
+
+You can proselytize for your deity, using your powers of persuasion and social influence to indoctrinate an NPC in the dogma of the faith while inspiring their fealty.
+
+Converting an NPC to your faith is similar to modifying their reaction with Diplomacy.
+
+You can only attempt to convert NPCs who are at least indifferent toward you, though you can take time to make a hostile or unfriendly NPC indifferent, and then begin the process of conversion. The DC of a conversion depends on how many conversion steps away from your faith an NPC is, starting at one conversion step for an NPC with no significant faith who matches your faith's alignment. For each step the NPC's alignment differs from the alignment of your faith, add one conversion step. If the NPC already holds a significant religious belief, add an additional conversion step.
+
+Note that servants of other faiths— including divine spellcasters who worship a deity and agents in the employ of a formal religion—normally can never be converted to a new faith. The GM has final discretion over whether an NPC will ever convert to your beliefs.
+
+If the GM rules that an NPC can be converted, the DC to convert that NPC is 10 + the NPC's Hit Dice + the NPC's Wisdom or Charisma modifier (whichever is higher) + 5 per conversion step. For example, a 5th level warrior with a Wisdom of 12 and no existing significant faith and who is the same alignment as your deity has a conversion DC of 21. Each conversion attempt requires at least an hour of proselytizing, and you can attempt no more than one conversion check per week. For your conversion attempt, roll a Diplomacy check and a Knowledge (religion) check at the DC determined above. If you succeed at both checks, decrease the number of conversion steps for that NPC by one. If you fail either check, you reinforce the NPC's existing faith and add one to the number of conversion steps for that NPC. If you fail three checks over the course of a conversion effort, the NPC rejects your faith and you cannot attempt another conversion for a year. However, if the number of conversion steps ever reaches 0, you convince the NPC to adopt your religion. Note that this does not necessarily change the NPC's alignment.
+
+While proselytizing is a reasonable activity for a religious adventurer, it should be handled with sensitivity, both in character and at the gaming table. Having a PC repeatedly attempt to convert NPCs who aren't interested is likely to result in worsening their attitude toward the character, and significant effort may be required to restore those relationships. Some players may be uncomfortable with too much time being spent on religious talk, in which case a GM is free to simply treat the conversion as a skill check, without actually roleplaying the talks that allow the conversion check to take place.
+
+Successful Conversion
+
+Characters that successfully convert others to their faith can gain divine blessings for adding new members to their religion. The first time at each character level a PC converts an NPC, they gain a conversion bonus for a number of days equal to the level of the NPC converted. Typical conversion bonuses for various faiths, and examples of classes likely to be interested in converting, are listed on the following page. In the case of Neutral deities, the bonus may be a sacred or profane bonus as most appropriate for the PC who gains it.

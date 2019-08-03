@@ -1,0 +1,215 @@
+@font-face {
+    font-family: 'anke_calligraphic_fgregular';
+    src: url('ankecallig-fg-webfont.eot');
+    src: url('ankecallig-fg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ankecallig-fg-webfont.woff2') format('woff2'),
+         url('ankecallig-fg-webfont.woff') format('woff'),
+         url('ankecallig-fg-webfont.ttf') format('truetype'),
+         url('ankecallig-fg-webfont.svg#anke_calligraphic_fgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ampersandregular';
+    src: url('ampersand-webfont.eot');
+    src: url('ampersand-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ampersand-webfont.woff2') format('woff2'),
+         url('ampersand-webfont.woff') format('woff'),
+         url('ampersand-webfont.ttf') format('truetype'),
+         url('ampersand-webfont.svg#ampersandregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* http://alphabeta85.deviantart.com/art/Scribulous-Scrawlin-124354088 */
+@font-face {
+    font-family: 'scrawlinregular';
+    src: url('Scribulous_Scrawlin-webfont.eot');
+    src: url('Scribulous_Scrawlin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Scribulous_Scrawlin-webfont.woff2') format('woff2'),
+         url('Scribulous_Scrawlin-webfont.woff') format('woff'),
+         url('Scribulous_Scrawlin-webfont.ttf') format('truetype'),
+         url('Scribulous_Scrawlin-webfont.svg#scrawlinregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'trashhandregular';
+    src: url('TrashHand-webfont.eot');
+    src: url('TrashHand-webfont.eot?#iefix') format('embedded-opentype'),
+         url('TrashHand-webfont.woff2') format('woff2'),
+         url('TrashHand-webfont.woff') format('woff'),
+         url('TrashHand-webfont.ttf') format('truetype'),
+         url('TrashHand-webfont.svg#trashhandregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+	background-image:url(parchment.jpg);
+}
+div.author1 {
+	font-family: 'anke_calligraphic_fgregular';
+}
+div.author3 {
+	font-family: 'ampersandregular';
+}
+div.author2 {
+	font-family: 'scrawlinregular';
+}
+div.author6 {
+	font-family: 'Marck Script';
+}
+.toc-holder {
+	font-family: 'anke_calligraphic_fgregular';
+	position: fixed;
+}
+.toc-holder a:link, .toc-holder a:visited {
+	text-decoration: none;
+	-webkit-transition: all .7s ease;
+	-moz-transition: all .7s ease;
+	-o-transition: all .7s ease;
+	-ms-transition: all .7s ease;
+	transition: all .7s ease;
+}
+.toc-holder li li a:link, .toc-holder li li a:visited {
+	padding-left: 15px;
+}
+.toc-holder li a:hover {
+	background: #666;
+	border-left: solid 5px transparent;
+}
+.top-link:link,.top-link:visited {
+	display: block;
+	text-decoration: none;
+	position: fixed;
+	bottom: 0;
+	left: 2%;
+	color: white;
+	background: #222;
+	padding: 8px 16px 0 16px;
+	height: 30px;
+	font-size: 14px;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+}
+.toc-link {
+	color: white;
+	position: relative;
+	display: block;
+	z-index: 20;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 25px;
+	width: 100%;
+	background: #444;
+	cursor: pointer;
+}
+.toc-link:hover {
+	background: #666;
+}
+.toc-h1,.toc-h1 ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.toc-h1 a:link,.toc-h1 a:visited {
+	color: white;
+	padding: 5px 5px 5px 5px;
+	display: block;
+}
+.toc-index, .toc-sub{
+	margin-top: 0;
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	z-index: 10;
+	width: 120%;
+	background: #222;
+}
+.ooc-data, .gameDate, .toc-closed {
+	display: none;
+}
+.entry div.body {
+	display: none;
+}
+div.aframe {
+	margin: 0px auto;
+	min-width: 550px;
+	max-width: 1300px;
+	width: 75%
+}
+div.journal {
+	margin-top: 28;
+	width: 90%;
+	float: left;
+	/* font-size: 250%; */
+}
+.clickableJournalTitle {
+	cursor: pointer;
+}
+.entry div.body p,
+.entry div.body ul,
+.entry div.body ol {
+	font-size: 150%;
+}
+.importantName {
+	font-weight: bold;
+}
+.PC:hover {
+	text-shadow: 1px 1px 2px white, 0 0 1em green, 0 0 0.2em green;
+	font-weight: bold;
+}
+.foe:hover {
+	text-shadow: 1px 1px 2px red, 0 0 1em crimson, 0 0 0.2em crimson;
+	font-weight: bold;
+}
+.friend:hover {
+	text-shadow: 1px 1px 2px white, 0 0 1em blue, 0 0 0.2em blue;
+	font-weight: bold;
+}
+.ally:hover {
+	text-shadow: 1px 1px 2px white, 0 0 1em cornflowerblue, 0 0 0.2em cornflowerblue;
+	font-weight: bold;
+}
+.neutral:hover {
+	text-shadow: 1px 1px 2px white, 0 0 1em lightgray, 0 0 0.2em lightgray;
+	font-weight: bold;
+}
+.nonfriend:hover {
+	font-weight: bold;
+	text-shadow: 1px 1px 2px lightpink, 0 0 1em orangered, 0 0 0.2em orangered;
+}
+.rival:hover {
+	font-weight: bold;
+	text-shadow: 1px 1px 2px white, 0 0 1em yellow, 0 0 0.2em yellow;
+}
+.creepyUndead:hover {
+	font-weight: bold;
+	text-shadow: 1px 0px 2px white, 0 0 1.8em black, 0 0 0.9em black;
+}
+a.freeCaptain {outline:none; }
+a.freeCaptain:hover {text-decoration:none;}
+span.tooltip {
+	z-index: 10;
+	display: none;
+	padding: 8px 8px;
+	margin-top: -5px;
+	margin-left: 5px;
+	line-height: 16px;
+	border-radius:4px;
+}
+a:hover span.tooltip, span:hover span.tooltip {
+	display: inline;
+	position: absolute;
+	color: #111;
+	border: 1px solid #FFD580;
+	background: #FFD580;
+	text-shadow: none;
+}

@@ -1,0 +1,482 @@
+
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <style type="text/css">
+
+  /* Sans-serif fonts look nicer, so let's use one if we can find it
+  */
+  body {
+    font-family: "Calibri", "Segoe UI", "Arial", Helvetica, sans-serif;
+
+    /* Show us at a fixed size to make things look good
+    */
+    width: 700px;
+    padding: 10px;
+
+    /* Put a rounded border around the whole thing
+    */
+    border: 2px solid #b0b0b0;
+    -moz-border-radius: 15pt;
+    border-radius: 15pt;
+    }
+
+  /* Center the title in the middle of the page in big text
+  */
+  h1 {
+    text-align: center;
+    font-size: 15pt;
+
+    /* Margin not needed to look good
+    */
+    margin: 0px 0px;
+    }
+
+  /* Hero details (gender, class, etc) can be pretty small
+  */
+  p.herodetails {
+    font-size: 8pt;
+    }
+
+  /* Text in the attributes list should be pretty large
+  */
+  ul.attributes {
+    font-size: 15pt;
+
+    /* Hiding the list bullets looks better
+    */
+    list-style-type: none;
+
+    /* We're the leftmost list in the table, so remove our left padding,
+      otherwise the centering looks wrong
+    */
+    padding-left: 0px;
+
+    /* Our original margin is overkill, so shrink it
+    */
+    margin-top: 0px;
+    margin-bottom: 10px;
+    }
+
+  /* Text in the skills list should be smaller
+  */
+  ul.skills {
+    font-size: 10pt;
+
+    /* Hiding the list bullets looks better
+    */
+    list-style-type: none;
+    }
+
+  /* Traits in secondary lists can be smaller still
+  */
+  ul.secondary {
+    font-size: 9pt;
+
+    /* Hiding the list bullets looks better
+    */
+    list-style-type: none;
+
+    /* Change our padding and margins to spread us out nicely
+    */
+    padding: 5px 15px;
+    margin: 5px;
+    }
+
+  /* Same with gear and abilities, but the text needs decent margins set to look good
+  */
+  p.gear, p.abilities, p.spells {
+    font-size: 10.5pt;
+    margin-left: 15pt;
+    margin-bottom: 5pt;
+    }
+
+  /* Legal text
+  */
+  p.legal {
+    text-align: center;
+    font-size: 8pt;
+    }
+
+  /* Ensure our image doesn't get too big
+  */
+  img.portrait {
+    max-width: 200px;
+    max-height: 300px;
+    border: 1px solid #808080;
+    margin-left: 25px;
+    }
+        </style>
+<title>Brangg</title>
+</head>
+<body>
+<h1>Brangg</h1>
+<table align="center"><tr>
+<td>
+<p class="herodetails">Male Neutral Good human<br/>fighter 1</p>
+<ul class="attributes">
+<li>Strength: <strong>18</strong> (<strong>+4</strong>)</li>
+<li>Dexterity: <strong>13</strong> (<strong>+1</strong>)</li>
+<li>Constitution: <strong>13</strong> (<strong>+1</strong>)</li>
+<li>Intelligence: <strong>10</strong> (<strong>0</strong>)</li>
+<li>Wisdom: <strong>10</strong> (<strong>0</strong>)</li>
+<li>Charisma: <strong>9</strong> (<strong>-1</strong>)</li>
+</ul></td>
+<td><ul class="skills">
+<li>Acrobatics:<strong> -5</strong></li>
+<li>Appraise:<strong> +0</strong></li>
+<li>Bluff:<strong> -1</strong></li>
+<li>Climb:<strong> +2</strong></li>
+<li>Diplomacy:<strong> -1</strong></li>
+<li>Disable Device:<strong> -7</strong></li>
+<li>Disguise:<strong> -1</strong></li>
+<li>Escape Artist:<strong> -5</strong></li>
+<li>Fly:<strong> -5</strong></li>
+<li>Handle Animal:<strong> -1</strong></li>
+<li>Heal:<strong> +0</strong></li>
+</ul></td>
+<td><ul class="skills">
+<li>Intimidate:<strong> -1</strong></li>
+<li>Linguistics:<strong> +0</strong></li>
+<li>Perception:<strong> +0</strong></li>
+<li>Ride:<strong> -5</strong></li>
+<li>Sense Motive:<strong> +0</strong></li>
+<li>Sleight of Hand:<strong> -5</strong></li>
+<li>Spellcraft:<strong> +0</strong></li>
+<li>Stealth:<strong> -5</strong></li>
+<li>Survival:<strong> +4</strong></li>
+<li>Swim:<strong> +2</strong></li>
+<li>Use Magic Device:<strong> -1</strong></li>
+</ul></td>
+<td></td>
+</tr></table>
+<table align="center"><tr>
+<td><ul class="secondary">
+<li>Hit Points: <strong>12</strong> HP</li>
+<li>Hit Dice: 1d10+2</li>
+<li>Initiative: <strong>+5</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Attack Bonus: <strong>+1</strong></li>
+<li>(melee: +5)</li>
+<li>(ranged: +2)</li>
+</ul></td>
+<td>
+<ul class="secondary">
+<li>Fortitude Save: <strong>+3</strong></li>
+<li>Reflex Save: <strong>+1</strong></li>
+<li>Will Save: <strong>+0</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Armor Class: <strong>18</strong></li>
+<li>(touch: 12)</li>
+<li>(flat-footed: 16)</li>
+</ul></td>
+<td><ul class="secondary">
+<li>CMB: <strong>+5</strong></li>
+<li>CMD: <strong>17</strong></li>
+<li>(flat-footed: 15)</li>
+</ul></td>
+</tr></table>
+<p class="abilities">
+        Feats &amp; Traits: Armor Proficiency (Heavy), Armor Proficiency (Light), Armor Proficiency (Medium), Dodge, Improved Initiative, Martial Weapon Proficiency - All, Quick Draw, Shield Proficiency, Simple Weapon Proficiency - All, Tower Shield Proficiency</p>
+<p class="abilities">
+        Special Abilities: Manifestation Points, Ability Scores ([none], 10/psychic duel)</p>
+<ul class="attacks">
+<li>Longsword
+      (+5, 1d8+4 damage, crit 19-20/×2)</li>
+<li>Warhammer
+      (+5, 1d8+4 damage, crit ×3)</li>
+<li>Sling
+      (+2, 1d4+4 damage, crit ×2)</li>
+</ul>
+<p class="gear">
+        Magic Items: </p>
+<p class="gear">
+        Other Gear: Backpack (empty), Bedroll, Belt pouch (empty), Flint and steel, Light steel quickdraw shield, Longsword, Mess kit, Pot, Rope, Scale mail, Sling, Soap, Torch
+        (x10), Trail rations
+        (x5), Warhammer, Waterskin</p>
+<hr/>
+<h1>Mostavang</h1>
+<table align="center"><tr>
+<td>
+<p class="herodetails">Male Lawful Neutral hill dwarf<br/>cleric of Reorx 1</p>
+<ul class="attributes">
+<li>Strength: <strong>12</strong> (<strong>+1</strong>)</li>
+<li>Dexterity: <strong>10</strong> (<strong>0</strong>)</li>
+<li>Constitution: <strong>14</strong> (<strong>+2</strong>)</li>
+<li>Intelligence: <strong>12</strong> (<strong>+1</strong>)</li>
+<li>Wisdom: <strong>17</strong> (<strong>+3</strong>)</li>
+<li>Charisma: <strong>10</strong> (<strong>0</strong>)</li>
+</ul></td>
+<td><ul class="skills">
+<li>Acrobatics:<strong> -6</strong></li>
+<li>Appraise:<strong> +1</strong></li>
+<li>Bluff:<strong> +0</strong></li>
+<li>Climb:<strong> -5</strong></li>
+<li>Craft (armor):<strong> +3</strong></li>
+<li>Diplomacy:<strong> +0</strong></li>
+<li>Disable Device:<strong> -8</strong></li>
+<li>Disguise:<strong> +0</strong></li>
+<li>Escape Artist:<strong> -6</strong></li>
+<li>Fly:<strong> -6</strong></li>
+<li>Handle Animal:<strong> +0</strong></li>
+<li>Heal:<strong> +7</strong></li>
+</ul></td>
+<td><ul class="skills">
+<li>Intimidate:<strong> +0</strong></li>
+<li>Knowledge (history):<strong> +5</strong></li>
+<li>Knowledge (religion):<strong> +5</strong></li>
+<li>Linguistics:<strong> +1</strong></li>
+<li>Perception:<strong> +3</strong></li>
+<li>Ride:<strong> -6</strong></li>
+<li>Sense Motive:<strong> +3</strong></li>
+<li>Sleight of Hand:<strong> -6</strong></li>
+<li>Spellcraft:<strong> +1</strong></li>
+<li>Stealth:<strong> -6</strong></li>
+<li>Survival:<strong> +3</strong></li>
+<li>Swim:<strong> -5</strong></li>
+<li>Use Magic Device:<strong> +0</strong></li>
+</ul></td>
+<td></td>
+</tr></table>
+<table align="center"><tr>
+<td><ul class="secondary">
+<li>Hit Points: <strong>10</strong> HP</li>
+<li>Hit Dice: 1d8+2</li>
+<li>Initiative: <strong>+0</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Attack Bonus: <strong>+0</strong></li>
+<li>(melee: +1)</li>
+<li>(ranged: +0)</li>
+</ul></td>
+<td>
+<ul class="secondary">
+<li>Fortitude Save: <strong>+4</strong></li>
+<li>Reflex Save: <strong>+0</strong></li>
+<li>Will Save: <strong>+5</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Armor Class: <strong>16</strong></li>
+<li>(touch: 10)</li>
+<li>(flat-footed: 16)</li>
+</ul></td>
+<td><ul class="secondary">
+<li>CMB: <strong>+1</strong></li>
+<li>CMD: <strong>11</strong></li>
+<li>(flat-footed: 11)</li>
+</ul></td>
+</tr></table>
+<p class="abilities">
+        Feats &amp; Traits: Armor Proficiency (Light), Armor Proficiency (Medium), Extra Channel, Shield Proficiency, Simple Weapon Proficiency - All</p>
+<p class="abilities">
+        Special Abilities: Darkvision (60 feet), Defensive Training +4, Greed, Stonecunning +2, Cleric Channel Positive Energy 1d6 (5/day, DC 10) (Su), Hatred +1, Aura (Ex), Cleric Domain (Earth), Cleric Domain (Forge), Cutting Hand (Su), Hardy +2, Manifestation Points, Ability Scores ([none], 14/psychic duel), Neidar, Slow and Steady, Spontaneous Casting, Stability +4</p>
+<ul class="attacks">
+<li>Morningstar
+      (+1, 1d8+1 damage, crit ×2)</li>
+<li>Light crossbow
+      (+0, 1d8 damage, crit 19-20/×2)</li>
+<li>Ranged touch attack
+      (+0, As Spell damage, crit ×2)</li>
+</ul>
+<p class="gear">
+        Magic Items: </p>
+<p class="gear">
+        Other Gear: Backpack (empty), Bedroll, Belt pouch (empty), Candle
+        (x10), Chainmail, Crossbow bolts
+        (x10), Flint and steel, Holy symbol, wooden (????), Holy text (????), Light crossbow, Mess kit, Morningstar, Pot, Ranged touch attack, Rope, Soap, Spell component pouch, Torch
+        (x10), Trail rations
+        (x5), Waterskin</p>
+<p class="spells">
+          Spells: Bless (1), Guidance (0), Light (0), Magic Stone (1), Magic Weapon (1), Mending (0), Stabilize (0)</p>
+<hr/>
+<h1>Ruhrnikh</h1>
+<table align="center"><tr>
+<td>
+<p class="herodetails">Male Chaotic Good qualinesti elf<br/>rogue 1</p>
+<ul class="attributes">
+<li>Strength: <strong>11</strong> (<strong>0</strong>)</li>
+<li>Dexterity: <strong>18</strong> (<strong>+4</strong>)</li>
+<li>Constitution: <strong>10</strong> (<strong>0</strong>)</li>
+<li>Intelligence: <strong>14</strong> (<strong>+2</strong>)</li>
+<li>Wisdom: <strong>10</strong> (<strong>0</strong>)</li>
+<li>Charisma: <strong>10</strong> (<strong>0</strong>)</li>
+</ul></td>
+<td><ul class="skills">
+<li>Acrobatics:<strong> +8</strong></li>
+<li>Appraise:<strong> +6</strong></li>
+<li>Bluff:<strong> +4</strong></li>
+<li>Climb:<strong> +4</strong></li>
+<li>Diplomacy:<strong> +1</strong></li>
+<li>Disable Device:<strong> +9</strong></li>
+<li>Disguise:<strong> +4</strong></li>
+<li>Escape Artist:<strong> +8</strong></li>
+<li>Fly:<strong> +4</strong></li>
+<li>Handle Animal:<strong> +0</strong></li>
+<li>Heal:<strong> +0</strong></li>
+</ul></td>
+<td><ul class="skills">
+<li>Intimidate:<strong> +0</strong></li>
+<li>Linguistics:<strong> +2</strong></li>
+<li>Perception:<strong> +8</strong></li>
+<li>Ride:<strong> +4</strong></li>
+<li>Sense Motive:<strong> +1</strong></li>
+<li>Sleight of Hand:<strong> +8</strong></li>
+<li>Spellcraft:<strong> +2</strong></li>
+<li>Stealth:<strong> +8</strong></li>
+<li>Survival:<strong> +0</strong></li>
+<li>Swim:<strong> +0</strong></li>
+<li>Use Magic Device:<strong> +0</strong></li>
+</ul></td>
+<td></td>
+</tr></table>
+<table align="center"><tr>
+<td><ul class="secondary">
+<li>Hit Points: <strong>9</strong> HP</li>
+<li>Hit Dice: 1d8+1</li>
+<li>Initiative: <strong>+4</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Attack Bonus: <strong>+0</strong></li>
+<li>(melee: +0)</li>
+<li>(ranged: +4)</li>
+</ul></td>
+<td>
+<ul class="secondary">
+<li>Fortitude Save: <strong>+0</strong></li>
+<li>Reflex Save: <strong>+6</strong></li>
+<li>Will Save: <strong>+0</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Armor Class: <strong>16</strong></li>
+<li>(touch: 14)</li>
+<li>(flat-footed: 12)</li>
+</ul></td>
+<td><ul class="secondary">
+<li>CMB: <strong>+0</strong></li>
+<li>CMD: <strong>14</strong></li>
+<li>(flat-footed: 10)</li>
+</ul></td>
+</tr></table>
+<p class="abilities">
+        Feats &amp; Traits: Armor Proficiency (Light), Elven Weapon Proficiencies, Rogue Weapon Proficiencies, Simple Weapon Proficiency - All, Weapon Finesse</p>
+<p class="abilities">
+        Special Abilities: Darkvision (30 feet), Low-Light Vision, Elven Immunities - Sleep, Elven Immunities, Elven Magic, Sneak Attack +1d6, Manifestation Points, Ability Scores ([none], 12/psychic duel), Trapfinding +1</p>
+<ul class="attacks">
+<li>Dagger
+      (+4, 1d4 damage, crit 19-20/×2)</li>
+<li>Rapier
+      (+4, 1d6 damage, crit 18-20/×2)</li>
+<li>Sling
+      (+4, 1d4 damage, crit ×2)</li>
+</ul>
+<p class="gear">
+        Magic Items: </p>
+<p class="gear">
+        Other Gear: Backpack (83 @ 75.5 lbs), Bedroll, Belt pouch (23 @ 3.5 lbs), Caltrops, Chalk
+        (x10), Dagger
+        (x5), Flint and steel, Grappling hook, Leather armor, Mess kit, Mirror, Piton
+        (x10), Pot, Rapier, Rope, Sling, Sling bullets
+        (x50), Sling bullets, smoke
+        (x10), Soap, Thieves' tools, Torch
+        (x10), Trail rations
+        (x5), Waterskin</p>
+<hr/>
+<h1>Turelia</h1>
+<table align="center"><tr>
+<td>
+<p class="herodetails">Female Lawful Good half-elf<br/>sorcerer 1</p>
+<ul class="attributes">
+<li>Strength: <strong>10</strong> (<strong>0</strong>)</li>
+<li>Dexterity: <strong>14</strong> (<strong>+2</strong>)</li>
+<li>Constitution: <strong>12</strong> (<strong>+1</strong>)</li>
+<li>Intelligence: <strong>10</strong> (<strong>0</strong>)</li>
+<li>Wisdom: <strong>8</strong> (<strong>-1</strong>)</li>
+<li>Charisma: <strong>18</strong> (<strong>+4</strong>)</li>
+</ul></td>
+<td><ul class="skills">
+<li>Acrobatics:<strong> +2</strong></li>
+<li>Appraise:<strong> +0</strong></li>
+<li>Bluff:<strong> +4</strong></li>
+<li>Climb:<strong> +0</strong></li>
+<li>Diplomacy:<strong> +4</strong></li>
+<li>Disable Device:<strong> +0</strong></li>
+<li>Disguise:<strong> +4</strong></li>
+<li>Escape Artist:<strong> +2</strong></li>
+<li>Fly:<strong> +2</strong></li>
+<li>Handle Animal:<strong> +4</strong></li>
+<li>Heal:<strong> -1</strong></li>
+</ul></td>
+<td><ul class="skills">
+<li>Intimidate:<strong> +4</strong></li>
+<li>Linguistics:<strong> +0</strong></li>
+<li>Perception:<strong> +1</strong></li>
+<li>Ride:<strong> +2</strong></li>
+<li>Sense Motive:<strong> -1</strong></li>
+<li>Sleight of Hand:<strong> +2</strong></li>
+<li>Spellcraft:<strong> +7</strong></li>
+<li>Stealth:<strong> +2</strong></li>
+<li>Survival:<strong> -1</strong></li>
+<li>Swim:<strong> +0</strong></li>
+<li>Use Magic Device:<strong> +8</strong></li>
+</ul></td>
+<td></td>
+</tr></table>
+<table align="center"><tr>
+<td><ul class="secondary">
+<li>Hit Points: <strong>8</strong> HP</li>
+<li>Hit Dice: 1d6+2</li>
+<li>Initiative: <strong>+2</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Attack Bonus: <strong>+0</strong></li>
+<li>(melee: +0)</li>
+<li>(ranged: +2)</li>
+</ul></td>
+<td>
+<ul class="secondary">
+<li>Fortitude Save: <strong>+1</strong></li>
+<li>Reflex Save: <strong>+2</strong></li>
+<li>Will Save: <strong>+1</strong></li>
+</ul></td>
+<td><ul class="secondary">
+<li>Armor Class: <strong>16</strong></li>
+<li>(touch: 12)</li>
+<li>(flat-footed: 14)</li>
+</ul></td>
+<td><ul class="secondary">
+<li>CMB: <strong>+0</strong></li>
+<li>CMD: <strong>12</strong></li>
+<li>(flat-footed: 10)</li>
+</ul></td>
+</tr></table>
+<p class="abilities">
+        Feats &amp; Traits: Elemental Focus (Electricity), Eschew Materials, Simple Weapon Proficiency - All, Skill Focus (Spellcraft)</p>
+<p class="abilities">
+        Special Abilities: Low-Light Vision, Elven Immunities - Sleep, Elven Immunities, Elemental Ray (1d6 electricity, 7/day) (Sp), Bloodline Arcana: Elemental (Ex), Elf Blood, Manifestation Points, Ability Scores ([none], 13/psychic duel)</p>
+<ul class="attacks">
+<li>Spiked gauntlet
+      (+0, 1d4 damage, crit ×2)</li>
+<li>Touch attack
+      (+0, As Spell damage, crit ×2)</li>
+<li>Ranged touch attack
+      (+2, As Spell damage, crit ×2)</li>
+<li>Sling
+      (+2, 1d4 damage, crit ×2)</li>
+</ul>
+<p class="gear">
+        Magic Items: </p>
+<p class="gear">
+        Other Gear: Backpack (empty), Bedroll, Belt pouch (empty), Flint and steel, Mess kit, Pot, Ranged touch attack, Sling, Soap, Spiked gauntlet, Torch
+        (x10), Touch attack, Trail rations
+        (x5), Waterskin</p>
+<p class="spells">
+          Spells: Acid Splash (0), Light (0), Mage Armor (1), Mage Hand (0), Prestidigitation (0), Snowball (1)</p>
+<hr/>
+<p class="legal">Hero Lab(R) and the Hero Lab logo are Registered Trademarks of LWD Technology, Inc. Free download at <a href="http://www.wolflair.com/">http://www.wolflair.com/</a>.<br/>
+      Pathfinder(R) and associated marks and logos are trademarks of Paizo Publishing, LLC(R), and are used under license.</p>
+</body>
+</html>

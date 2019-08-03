@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+{% load cms_tags sekizai_tags staticfiles %}
+
+{% block title %}Endless Halls{% endblock title %}
+
+{% block content %}
+<div class="halls-frame">
+<div class="halls-grid">
+<form method="post">
+{% csrf_token %}
+<table style="border-spacing: 0px; padding: 0; ">
+{% for row in hero.look_grid_arrange %}
+    <tr style="height: 64px; max-height: 64px;">
+    {% for cell in row %}
+        <td style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; position: relative; height: 64px; max-height: 64px;">
+            {% if cell.type == "test" %}
+                <img src="{% static "eh17.png" %}" style="display: block;" title="That's different!" />
+            {% elif cell.type == "exit" %}
+                <img src="{% static "exit.png" %}" style="display: block;" title="An exit!" />
+            {% elif cell.type == "goal" %}
+                <img src="{% static "goal.png" %}" style="display: block;" title="The Treasury!!!">
+            {% elif cell.explored %}
+                {% if not cell.navigation and cell.navigation != 0 %}
+                    <img src="{% static "explored.png" %}" style="display: block;" title="{#type: {{cell.type}}, people: {{cell.people}}, explored: {{cell.explored}}, nav: {{cell.navigation}}, #}Tile {{cell.id}}" />
+                {% else %}
+                    <input name="direction" type="submit" value="{{cell.navigation}}" style="background:url({% static "explored.png" %}) no-repeat; padding: 0; width: 64px; height: 64px; border-width: 0; text-indent: -999px; font-size: 0px; line-height: 0; cursor: pointer;" title="{#type: {{cell.type}}, people: {{cell.people}}, explored: {{cell.explored}}, nav: {{cell.navigation}}, #}Tile {{cell.id}}" />
+                {% endif %}
+            {% else %}
+                {% if not cell.navigation and cell.navigation != 0 %}
+                    <img src="{% static "tile.png" %}" style="display: block;" title="{#type: {{cell.type}}, people: {{cell.people}}, explored: {{cell.explored}}, nav: {{cell.navigation}}, #}Unexplored Tile" />
+                    {% if cell.shadow %}
+                        <img src="{% static "ehshadow.png" %}" style="display: block; z-index: 99; position: absolute; top: 0; left: 0;" title="{#type: {{cell.type}}, people: {{cell.people}}, explored: {{cell.explored}}, nav: {{cell.navigation}}, #}Tile not usefully visible." />
+                    {% endif %}
+                {% else %}
+                    <input name="direction" type="submit" value="{{cell.navigation}}" style="background:url({% static "tile.png" %}) no-repeat; padding: 0; width: 64px; height: 64px; border-width: 0; text-indent: -999px; font-size: 0px; line-height: 0; cursor: pointer;" title="{#type: {{cell.type}}, people: {{cell.people}}, explored: {{cell.explored}}, nav: {{cell.navigation}}, #}Tile {{cell.id}}" />
+                {% endif %}
+            {% endif %}
+            {% if cell.people %}
+                {% for hero in cell.people %}
+                    <span style="display: block; position: absolute; top: 0px; left: calc({{forloop.counter0}} * 32px); font-size: {{hero.size}}px; z-index: 999;" title="{{hero.name}}">{{hero.symbol}}</span>
+                {% endfor %}
+            {% endif %}
+        </td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+</form>
+</div>
+</div>
+{% endblock content %}

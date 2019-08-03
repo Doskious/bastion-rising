@@ -1,0 +1,48 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}This is my new project home page{% endblock title %}</title>
+    {% render_block "css" %}
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        .nav {
+            padding-left: 0;
+        }
+        .nav li {
+            display: inline;
+            list-style-type: none;
+            padding-right: 20px;
+        }
+        body {
+            background-image:url(/parchment.jpg);
+        }
+        .ubuntu-text {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .margin-780 {
+            max-width: 780px;
+            margin: auto;
+        }
+        .width-70p {
+            max-width: 70%;
+        }
+        .auto-margin {
+            margin: auto;
+        }
+    </style>
+    <script src="https://js.bastion-rising.net/EvaluateXPath%20Suite/evaluateXPathSuite.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+{% cms_toolbar %}
+<div style="margin:0 auto">
+    <!-- <ul class="nav">
+        {% show_menu 0 100 100 100 %}
+    </ul> -->
+    {% block content %}
+    {% endblock content %}
+</div>
+{% render_block "js" %}
+</body>
+</html>

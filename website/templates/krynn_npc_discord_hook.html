@@ -1,0 +1,88 @@
+{% load cms_tags sekizai_tags staticfiles %}
+
+{% addtoblock "css" %}
+<style type="text/css">
+    #moon_magic_wrap {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: x-large;
+    }
+    #moon_magic > p:nth-child(1) {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+    #calendar_forms form {
+        display: inline;
+    }
+</style>
+{% endaddtoblock %}
+
+<div>
+    <select id="npc_picker">
+        <option disabled="disabled" selected="selected">Pick an NPC</option>
+        {% for npc in npcs %}
+            <option data-username="{{ npc.name }}" data-avatar_url="https://allegiance.bastion-rising.net{{ npc.image.url }}">{{ npc.name }}</option>
+        {% endfor %}
+    </select>
+    <button id="npc_picked">Update Form</button>
+</div>
+
+<div style="display: flex;">
+<div id="moon_magic_wrap">
+    <div>Support-Debug</div>
+    <form id="npc_chatter_debug" action="https://discordapp.com/api/webhooks/397441243728183299/-uG1VhB7Pmqfm7swVqUV4VI42J5rWbXqo-BikAoSHTP0lx-_dbOkv_syYVmETcJ9lEPO" method="POST">
+        <label>NPC Name: <input id="username_sd" name="username" class="username" type="text" placeholder="username" /></label>
+        <label>NPC Avatar URL: <input id="avatar_url_sd" name="avatar_url" class="avatar_url" type="text" placeholder="avatar_url" /></label><br>
+        <label>Content: <textarea id="content_sd" name="content" class="content" type="textarea" placeholder="content" maxlength="2000"></textarea></label>
+        <input type="submit" id="post_npc_chatter" value="Say Something" />
+    </form>
+    <hr>
+    <div>General</div>
+    <form id="npc_chatter_general" action="https://discordapp.com/api/webhooks/397455919333638165/Bq8TO2QYK02yesbpmHZNunBK_E3P-oQxSnPa-LNDiGIcMEwXmSzQUJdbhL9s4xBBIAuB" method="POST">
+        <label>NPC Name: <input id="username_g" name="username" class="username" type="text" placeholder="username" /></label>
+        <label>NPC Avatar URL: <input id="avatar_url_g" name="avatar_url" class="avatar_url" type="text" placeholder="avatar_url" /></label><br>
+        <label>Content: <textarea id="content_g" name="content" class="content" type="textarea" placeholder="content" maxlength="2000"></textarea></label>
+        <input type="submit" id="post_npc_chatter" value="Say Something" />
+    </form>
+    <hr>
+    <div>In-Character</div>
+    <form id="npc_chatter" action="https://discordapp.com/api/webhooks/397456804403216397/GFIgCeYHveCjj1Fc0aQxYDbYVpuxYL-sHrCnB9HAzR_J2wPYd_yVkMnKdF23cgXtfK-g" method="POST">
+        <label>NPC Name: <input id="username" name="username" class="username" type="text" placeholder="username" /></label>
+        <label>NPC Avatar URL: <input id="avatar_url" name="avatar_url" class="avatar_url" type="text" placeholder="avatar_url" /></label><br>
+        <label>Content: <textarea id="content" name="content" class="content" type="textarea" placeholder="content" maxlength="2000"></textarea></label>
+        <input type="submit" id="post_npc_chatter" value="Say Something" />
+    </form>
+    <hr>
+    <hr>
+    <div>Ichonocronus</div>
+    <form id="npc_chatter_i" action="https://discordapp.com/api/webhooks/397501137571545098/IRUOw4MdznvzjLu_wE_NxCkCZ4Xtfkp8_hoyrE40d-Z-ZlgERvvzNjZoUk3cXe5luzNo" method="POST">
+        <label>NPC Name: <input id="username_i" name="username" type="text" value="Bertrem the Scribe" /></label>
+        <label>NPC Avatar URL: <input id="avatar_url_i" name="avatar_url" type="text" value="https://allegiance.bastion-rising.net/media/bertrem_the_scribecon.png" /></label><br>
+        <label>Content: <textarea id="content_i" name="content" class="content" type="textarea" placeholder="content" maxlength="2000"></textarea></label>
+        <input type="submit" id="post_npc_chatter" value="Say Something" />
+    </form>
+    <hr><hr>
+    <br>
+    <h3>For Jenn</h3>
+    <hr>
+    <div>SkullBot</div>
+    <form id="npc_chatter_skullbot" action="https://discordapp.com/api/webhooks/480466424469520385/Rg-dYJrSMz-3tiYIjRX8nXkHz5qUjU80ShJ4i4z9zA5TZ3y7P5afw4OowKk69MRjQr5T" method="POST">
+        <label>NPC Name: <input id="username_sb" class="username" name="username" type="text" placeholder="display name" /></label>
+        <label>NPC Avatar URL: <input id="avatar_url_sb" class="avatar_url"  name="avatar_url" type="text" placeholder="avatar url" /></label><br>
+        <label>Content: <textarea id="content_sb" name="content" class="content" type="textarea" placeholder="content" maxlength="2000"></textarea></label>
+        <input type="submit" id="post_npc_chatter_skullbot" value="Say Something" />
+    </form>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        console.log("Initialization complete");
+        $("#npc_picked").on("click", function(e) {
+            // console.log(e);
+            var options = $("#npc_picker").find("option:selected").data();
+            for (let cname in options) {
+                $(`input.${cname}`).val(options[cname]);
+            }
+        });
+    });
+</script>

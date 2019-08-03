@@ -1,0 +1,774 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"j",
+				"jQuery"
+			],
+			[
+				"initia",
+				"initiativeDiv"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"rn",
+				"rndorgroll"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"ind",
+				"indexOf"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"add",
+				"addedNodes"
+			],
+			[
+				"sty",
+				"style"
+			],
+			[
+				"add_",
+				"add_modal_item"
+			],
+			[
+				"sch",
+				"schlog_newposts"
+			],
+			[
+				"New",
+				"NewJournalEntryAdmin"
+			],
+			[
+				"J",
+				"JournalAuthor"
+			],
+			[
+				"Cha",
+				"CharacterStatus"
+			],
+			[
+				"Fo",
+				"ForeignKey"
+			],
+			[
+				"mode",
+				"models"
+			],
+			[
+				"d",
+				"div	Tag"
+			],
+			[
+				"sh",
+				"schlog_groups"
+			],
+			[
+				"model",
+				"Model"
+			],
+			[
+				"sp",
+				"span	Tag"
+			],
+			[
+				"Jour",
+				"JournalSections"
+			],
+			[
+				"Jou",
+				"JournalSection"
+			],
+			[
+				"All",
+				"AllEntries"
+			],
+			[
+				"ma",
+				"max_length"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/Doskious/ownCloud/Skull and Shackles/The Allegiance and Crew.txt",
+			"settings":
+			{
+				"buffer_size": 2023,
+				"line_ending": "Windows",
+				"name": "Petes: 49"
+			}
+		},
+		{
+			"file": "/C/Users/Doskious/ownCloud/Skull and Shackles/notes0.txt",
+			"settings":
+			{
+				"buffer_size": 1000,
+				"line_ending": "Windows",
+				"name": "The Brine Banshee - Noted by Slip from Beachcombe,"
+			}
+		},
+		{
+			"file": "/C/Users/Doskious/ownCloud/Skull and Shackles/notes1.txt",
+			"settings":
+			{
+				"buffer_size": 2041,
+				"line_ending": "Windows",
+				"name": "We've found the Lady's Sting and the Firewind, bot"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "pret",
+		"selected_items":
+		[
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"64",
+				"Base Encoding: Base64 Encode Selection(s)"
+			],
+			[
+				"white",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"min",
+				"Minify::Minify File"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"git pus",
+				"Git: Push Current Branch"
+			],
+			[
+				"push",
+				"Git: Push Current Branch"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git pu",
+				"Git: Push Current Branch"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"git",
+				"Git: Toggle Annotations"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"lin",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"conv",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/W/allegiance",
+		"/W/allegiance/charsheet",
+		"/W/allegiance/tmp"
+	],
+	"file_history":
+	[
+		"/W/allegiance/website/templates/main.html",
+		"/C/Users/Doskious/ownCloud/Skull and Shackles/treasure for distribution.txt",
+		"/W/allegiance/tmp/stat_block_sample.html",
+		"/W/allegiance/tmp/restart.txt",
+		"/W/allegiance/charsheet/models.py",
+		"/W/allegiance/website/templates/char_plugin.html",
+		"/C/Users/Doskious/ownCloud/Skull and Shackles/Emma Journals need publishing.txt",
+		"/C/Users/Doskious/ownCloud/Skull and Shackles/Emma Journals need publishing.",
+		"/C/Users/Doskious/Gits/cpp-vera/tlist.cpp",
+		"/C/Users/Doskious/Downloads/Add_Console_lock_display_off_timeout.reg",
+		"/C/Users/Doskious/AppData/Roaming/Sublime Text 3/Packages/Theme - Nexus/Nexus.sublime-theme",
+		"/C/ProgramData/Hero Lab/customoutput/pathfinder/rt_complete_plus_rolling/rt_complete.xsl",
+		"/C/ProgramData/Hero Lab/customoutput/pathfinder/rt_complete_plus_rolling/output.xml",
+		"/C/cygwin64/home/Doskious/.bash_history",
+		"/H/js/rt_complete/rndorgroll.css",
+		"/H/js/rt_complete/rndorgroll_generic.js",
+		"/C/ProgramData/Hero Lab/customoutput/pathfinder/rt_complete/rt_complete.xsl",
+		"/H/js/rt_complete/rt_complete.js",
+		"/C/Users/Doskious/ownCloud/skull-n-shackles/Emalliandra.htm",
+		"/W/allegiance/website/templates/charsheet.html",
+		"/W/allegiance/website/settings.py",
+		"/W/allegiance/website/templates/base.html",
+		"/H/web/sample.html",
+		"/H/web/rndorgroll.js",
+		"/H/web/rndorgroll.min.js",
+		"/C/Users/Doskious/tss-staff",
+		"/W/allegiance/shlog/models.py",
+		"/W/allegiance/website/templates/shlog.html",
+		"/W/allegiance/shlog/views.py",
+		"/W/allegiance/shlog/cms_toolbar.py",
+		"/W/allegiance/shlog/admin.py",
+		"/C/Users/Doskious/AppData/Roaming/Sublime Text 3/Packages/User/SublimeGit.sublime-settings",
+		"/C/Users/Doskious/AppData/Roaming/Sublime Text 3/Packages/SublimeGit/SublimeGit.sublime-settings",
+		"/C/Users/Doskious/AppData/Roaming/Sublime Text 3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"//eva/webapps/allegiance/.gitignore",
+		"/W/allegiance/passenger_wsgi.py",
+		"/W/allegiance/.gitignore",
+		"/C/cygwin64/etc/fstab",
+		"/C/etc/fstab",
+		"/C/Users/Doskious/Gits/allegiance/website/templates/base.html",
+		"/C/Users/Doskious/Gits/allegiance/website/static/base.css",
+		"/S/Downloads/trashand/stylesheet.css",
+		"/C/Users/Doskious/Gits/allegiance/shlog/models.py",
+		"/C/Users/Doskious/Gits/allegiance/shlog/admin.py",
+		"/C/Users/Doskious/Gits/allegiance/website/settings.py",
+		"/C/Users/Doskious/Gits/allegiance/shlog/views.py",
+		"/C/Users/Doskious/Gits/allegiance/website/templates/shlog.html",
+		"/C/Users/Doskious/Gits/allegiance/shlog/cms_toolbar.py",
+		"/S/pydev/allegiance/website/static/ankecallig-fg-webfont.svg",
+		"/S/pydev/allegiance/website/static/Scribulous_Scrawlin-webfont.svg",
+		"/C/Users/Doskious/Downloads/stylesheet.css",
+		"/C/cygwin/etc/fstab",
+		"/C/Users/Doskious/moomba_shlog.txt",
+		"/S/pydev/allegiance/website/templates/shlog.html",
+		"/S/pydev/allegiance/website/templates/base.html",
+		"/H/emmajournals/index.html",
+		"/S/pydev/allegiance/website/static/base.css",
+		"/S/pydev/allegiance/website/settings.py",
+		"/S/pydev/allegiance/shlog/admin.py",
+		"/S/pydev/allegiance/shlog/views.py",
+		"/S/pydev/allegiance/shlog/models.py",
+		"/S/pydev/allegiance/.gitignore",
+		"/S/pydev/allegiance/shlog/cms_app.py",
+		"/S/pydev/allegiance/shlog/urls.py",
+		"/S/pydev/allegiance/website/urls.py",
+		"/S/pydev/allegiance/shlog/cms_plugins.py",
+		"/S/pydev/allegiance/website/templates/log_plugin.html",
+		"/S/pydev/allegiance/website/templates/hello_plugin.html",
+		"/C/Users/Doskious/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/S/pydev/allegiance/website/wsgi.py",
+		"/C/Users/Doskious/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/Doskious/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/cygwin64/home/Doskious/routing.txt",
+		"/C/cygwin64/home/Doskious/.bashrc"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"20",
+			"weapon-panel-entry",
+			"INITIATIVE",
+			"initiative-colorable",
+			"lus:",
+			"lus:va",
+			"Skills",
+			"colorable",
+			"clickToRollRandomOrg",
+			"roll",
+			"FtoC",
+			"parsePathfinderXML",
+			"",
+			"skill",
+			"\\n",
+			"parsePathfinderXML",
+			"script",
+			"\\n",
+			"$",
+			"\\n",
+			"head",
+			"removePlus",
+			"save",
+			"skill",
+			"table",
+			"<span style=\"text-align: center;\">- - - - - - - - -</span>",
+			"<hr>",
+			"anke_calligraphic_fgregular",
+			"\\{\\{ entry.([a-z_]+) \\}\\}",
+			"                <br>",
+			"\\n\\s{2,}<.+?>([\\s\\S]+?)</.+?>",
+			"    </body>",
+			"\\t<body>",
+			"    <body>",
+			"        </body>",
+			"\\s{8}</body>",
+			"\\s+<div class=\"entry\">\\n\\s+.+?\"gameDate\">([\\d\\/]+).+?Context\">(.+?)<.+?TitleText\">(.+?)<.+?\\n.+?body\">\\n([\\s\\S]+?)</div>\\n\\s{4}</div>",
+			"\\",
+			"path"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"<img src=\"divider.png\" align=\"center\">",
+			"<span style=\"text-align: center;\">- - - - - - - - -</span>",
+			"\\{\\% render_model entry \"$1\" \\%\\}",
+			"",
+			"\\n$1",
+			"\\t</body>",
+			"\\t<body>\\n",
+			"    </body>",
+			"\\s{4}</body>",
+			"<entry>\\n\\t<gameDate>$1</gameDate>\\n\\t<context>$2</context>\\n\\t<title>$3</title>\\n\\t<body>$4</body>\\n</entry>\\n",
+			"<entry>\\n\\t<gameDate>$1</gameDate>\\n\\t<context>$2</context>\\n\\t<title>$3</title>\\n\\t<body>$4</body>\\n</entry>",
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/Doskious/ownCloud/Skull and Shackles/The Allegiance and Crew.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1337,
+								1337
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "Petes: 49",
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"spell_check": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 954.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Doskious/ownCloud/Skull and Shackles/notes0.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								117,
+								117
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "The Brine Banshee - Noted by Slip from Beachcombe,",
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Doskious/ownCloud/Skull and Shackles/notes1.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2041,
+								2041
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "We've found the Lady's Sting and the Firewind, bot",
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 447.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 116.0
+	},
+	"output.git-push":
+	{
+		"height": 116.0
+	},
+	"pinned_build_system": "",
+	"project": "allegiance.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 142.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

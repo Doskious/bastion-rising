@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% load cms_tags sekizai_tags staticfiles %}
+
+{% block title %}Adventure Log{% endblock title %}
+
+{% block content %}
+<div id="toc-holder" class="toc-holder"></div>
+<div class="aframe">
+<div class="journal">
+{% for group in groups %}
+    <div id="group{{ group.id }}" class="sectionGrouping"><span class="ooc-data">{{ group.group_name }}</span>
+    {% for section in sections %}
+    {% if section.section_group_id == group.id %}
+        <section id="section{{ section.id }}"><h1 class="ooc-data">{{ section.journal_section }}</h1>
+        {% for entry in posts %}
+        {% if entry.section_id == section.id and entry.published_date %}
+            <div class="entry author{{ entry.author_id }}">
+                <h2 class="clickableJournalTitle">
+                    <span class="gameDate">{{ entry.journal_date }}</span><span class="journalContext">{{ entry.context }}</span>{% if entry.context != "" %} - {% endif %}<span class="journalTitleText">{{ entry.title }}</span><span class="journalSubTitle">{{ entry.subtext }}</span>
+                </h2>
+                <div class="body">{{ entry.body|safe|linebreaks }}</div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        </section>
+    {% endif %}
+    {% endfor %}
+    </div>
+{% endfor %}
+</div>
+</div>
+<a href="#top" class="top-link" id="top-link">Top</a>
+{% endblock content %}

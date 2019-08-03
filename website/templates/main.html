@@ -1,0 +1,260 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}This is my new project home page{% endblock title %}</title>
+    {% render_block "css" %}
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        ul.nav
+        {
+            list-style:none;
+            position:relative;
+            float:left;
+            margin:0;
+            padding:0;
+            z-index:999;
+        }
+        
+        ul.nav a
+        {
+            display:block;
+            color:#333;
+            text-decoration:none;
+            font-weight:700;
+            font-size:12px;
+            line-height:32px;
+            padding:0 15px;
+            font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+        }
+        
+        ul.nav li
+        {
+            position:relative;
+            float:left;
+            margin:0;
+            padding:0
+        }
+        
+        ul.nav li.selected
+        {
+            background:#ddd
+        }
+        
+        ul.nav li:hover
+        {
+            background:#f6f6f6
+        }
+        
+        ul.nav ul
+        {
+            list-style:none;
+            display:none;
+            position:absolute;
+            top:100%;
+            left:0;
+            background:#fff;
+            padding:0
+        }
+        
+        ul.nav ul li
+        {
+            float:none;
+            width:200px
+        }
+        
+        ul.nav ul a
+        {
+            line-height:120%;
+            padding:10px 15px
+        }
+        
+        ul.nav ul ul
+        {
+            top:0;
+            left:100%
+        }
+        
+        ul.nav li:hover > ul
+        {
+            display:block
+        }
+        .ubuntu-text {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .margin-780 {
+            max-width: 780px;
+            margin: auto;
+        }
+        .width-70p {
+            max-width: 70%;
+        }
+        .auto-margin {
+            margin: auto;
+        }
+        .text-on-parchment {
+            background-color: rgba(192,134,24,.55);
+            padding: 0px 8px 0px 8px;
+        }
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Marck+Script|Allura|Reenie+Beanie|Schoolbell|Calligraffitti|Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static "base.css" %}" type="text/css" charset="utf-8">
+    <link rel="stylesheet" media="screen" href="{% static "superfish.css" %}">
+    <link rel="stylesheet" media="screen" href="{% static "superfish-vertical.css" %}">
+    <script src="https://js.bastion-rising.net/EvaluateXPath%20Suite/evaluateXPathSuite.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static "hoverIntent.js" %}"></script>
+    <script src="{% static "superfish.js" %}"></script>
+    <script src="{% static "highlight.jquery" %}"></script>
+    <script>
+        jQuery.fn.extend({
+            dateParse: function () {
+                var yyyymmddString = $(this).text();
+                var parsedString = '';
+                var monthParse = new Array('dummy','Abadius', 'Calistril', 'Pharast', 'Gozran', 'Desnus', 'Sarenith', 'Erastus', 'Arodus', 'Rova', 'Lamashan', 'Neth', 'Kuthona');
+                var ourMonth = new Array('dummy', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+                var ymdArray = yyyymmddString.split("/");
+                parsedString = parseInt(ymdArray[2]).toString() + ' <span class="golarionMonth">' + monthParse[parseInt(ymdArray[1])] + '<span class="tooltip">' + ourMonth[parseInt(ymdArray[1])] + '</span></span>, ' + ymdArray[0] + ": ";
+            return parsedString;
+            }
+        });
+        $(document).ready(function(){
+            // Variables defining text strings for dynamic highlighting.
+            var pcNames = new Array('Captain Varnai Tideweaver', 'Varnai Tideweaver', 'Captain Tideweaver', 'Cap\'n Varnai', 'Varnai', 'Ner\u00FF\u00E7e Tr\u00EDtonsd\u00F4tt\u00ECr', 'Ner\u00FF\u00E7e', 'Neryce', 'Mad Harry Bonny', 'Mad Harry', 'Harry', 'Aisla', 'Buster', 'Emalliandra');
+            var npcAllied = new Array('Rosie', 'Conchabar', 'Sandarra Quinn', 'Sandarra', 'Ambrose Kroop', 'Ambrose', 'Owlbear', 'OWLBER', 'Opal', 'Reef');
+            var npcFriendly = new Array('Grokk', 'Crimson Cogward', 'Crimson', 'Kipper', 'Captain Merril Pegsworthy', 'Captain Pegsworthy', 'Merril Pegsworthy', 'Captain Tessa Fairwind', 'Captain Fairwind', 'Tessa Fairwind', 'Doran', 'Tanos Prideweather', 'Tanos');
+            var npcNeutral = new Array('Master Rickety Hake', 'Rickety Hake', 'Master Hake', 'Chandra', 'Riaris Krine', 'Krine', 'Doc Quarne', 'Quarne', 'Peppry Longfarthing', 'Peppry', 'Maheem', 'Patch Patchsalt', 'Patch');
+            var npcRivals = [];
+            var npcUnfriendly = new Array('Fipps Chumlet', 'Fipps', 'Narwhal', 'Syl', 'Aretta', 'Jaundiced Jape', 'Jape');
+            var npcHostile = new Array('Captain Barnabus Harrigan', 'Captain Harrigan', 'Harrigan', 'Mr. Plugh', 'Plugh', 'Master Scourge', 'Scourge', 'Master Lacuni', 'Lacuni');
+            var npcDeceased = new Array('Mr. Plugh', 'Plugh', 'Master Scourge', 'Scourge', 'Syl', 'Aretta');
+            var npcNamedCrew = new Array('Chiveeka', 'Larry', 'Curly', 'Moe', '"Barefoot" Samms Toppin', 'Barefoot Samms Toppin', 'Samms Toppin','"Badger" Medlar', 'Badger Medlar', '"Ratline" Ratsburger', 'Ratline Ratsburger', 'Ratline', 'Giffer Tibs', 'Giffer', 'Jack Scrimshaw', 'Blind Ben', "Ten'n'one", '10-1', 'Fishmouth', 'Anika', 'Killjoy');
+            var npcOther = [];
+            var significantPlace = new Array('Port Peril', 'Tidewater Rock', 'Bloodcove', 'Bonewrack Island', "Rickety's Squibs", 'Firegrass Isle', 'Sangore', 'Quent', 'Y\'kenqu', 'Dahak\'s Fang', 'Windward Isle');
+            var organizations = new Array('Aspis Consortium');
+            var creepyUndead = new Array('Deathknell');
+            // Variables associating known Free Captains with their primary craft by lastname, for dynamic tooltip creation.
+            var freeCaptains = new Array('Harrigan', 'Pegsworthy', 'Fairwind');
+            var captOfShip = new Array('Captain of the Wormwood', 'Captain of the Bonaventure', 'Lord-Commander of Quent');
+
+            // Dynamic Highlighting
+            $("p").highlight(pcNames, {element: 'a', className: 'importantName PC'});
+            $("p").highlight(npcAllied, {element: 'a', className: 'NPC ally'});
+            $("p").highlight(npcHostile, {element: 'a', className: 'NPC foe'});
+            $("p").highlight(npcFriendly, {element: 'a', className: 'NPC friend'});
+            $("p").highlight(npcNeutral, {element: 'a', className: 'NPC neutral'});
+            $("p").highlight(npcUnfriendly, {element: 'a', className: 'NPC nonfriend'});
+            $("p").highlight(npcNamedCrew, {element: 'a', className: 'NPC crew'});
+            $("li").highlight(pcNames, {element: 'a', className: 'importantName PC'});
+            $("li").highlight(npcAllied, {element: 'a', className: 'NPC ally'});
+            $("li").highlight(npcHostile, {element: 'a', className: 'NPC foe'});
+            $("li").highlight(npcFriendly, {element: 'a', className: 'NPC friend'});
+            $("li").highlight(npcNeutral, {element: 'a', className: 'NPC neutral'});
+            $("li").highlight(npcUnfriendly, {element: 'a', className: 'NPC nonfriend'});
+            $("p").highlight(significantPlace, {element: 'a', className: 'importantName location'});
+            $("p").highlight(organizations, {element: 'a', className: 'importantName organization'});
+            $("p").highlight(creepyUndead, {element: 'a', className: 'importantName creepyUndead'});
+
+            for (var i = 0; i < freeCaptains.length; i++) {
+                var tipSpan = $('<span />', {'class': 'tooltip', text: captOfShip[i]});
+                $("a:contains('"+freeCaptains[i]+"')").addClass("freeCaptain").append(tipSpan);
+            }
+
+            for (var j = 0; j < npcDeceased.length; j++) {
+                var tipSpans = $('<span />', {'class': 'tooltip', text: "Currently Deceased. Reqviescat in mar\u012b pax, and soforth."});
+                $("a.NPC:contains('"+npcDeceased[j]+"')").addClass("currentlyDead").append(tipSpans);
+            }
+
+            var iID = 0;
+            $('h2.clickableJournalTitle').each(function() {
+                if (!$(this).hasClass('backstory')) {
+                    $(this).attr('id', 'journalEntry'+iID);
+                    iID++;
+                }
+            });
+
+            $('<a />', {
+                'text': 'Table of contents',
+                'class': 'toc-link',
+                'id': 'toc-link'
+            }).appendTo('#toc-holder');
+            $('<ul />', {
+                'class': 'toc-index toc-closed sf-menu sf-vertical',
+                'id': 'toc-index'
+            }).appendTo('#toc-holder');
+
+            $("div.sectionGrouping").each(function(){
+                var grptext = $(this).children('span').text();
+                var grpid = this.id;
+                var grpa = $('<a />',{'href':'#'+grpid,'text':grptext});
+                var grpul = $('<ul />',{'class':'toc-sub toc-closed','id':'to'+grpid});
+                var grpli = $('<li />',{'class':'toc-h1'}).append(grpa).append(grpul);
+                grpli.appendTo('#toc-index');
+                $(this).children("section").each(function() {
+                    var sectext = $(this).children('h1').text();
+                    var secid = this.id;
+                    var seca = $('<a />',{'href':'#'+secid,'text':sectext});
+                    var secul = $('<ul />',{'class':'toc-sub toc-closed','id':'to'+secid});
+                    var secli = $('<li />',{'class':'toc-h1'}).append(seca).append(secul);
+                    secli.appendTo('#to'+this.parentNode.id);
+                    $(this).children("div.entry").children("h2.clickableJournalTitle").each(function() {
+                        var toctext = $(this).children('.journalTitleText').text();
+                        var tocid = this.id;
+                        var toca = $('<a />',{'href':'#'+tocid,'text':toctext});
+                        var tocli = $('<li />',{'class':'toc-entry'}).append(toca);
+                        // console.log(this.parentNode.id);
+                        tocli.appendTo('#to'+this.parentNode.parentNode.id);
+                    });
+                });
+            });
+
+            jQuery('ul.sf-menu').superfish({
+                animation:  {height:'show'},
+                delay:      1200
+            });
+
+            $("#toc-holder").hoverIntent({
+                over: function() { $("#toc-index").removeClass("toc-closed"); },
+                out: function() { $("#toc-index").addClass("toc-closed"); },
+                timeout: 1200
+            });
+
+            $(".toc-entry>a").on("click", function() {
+                entryID = this.href.replace(/.+?#/,'');
+                $("#toc-index").toggleClass("toc-closed");
+                $(".journal .entry .body").hide();
+                $("h2").removeClass('expanded');
+                $('#'+entryID).siblings(".body").show('fast');
+                $('#'+entryID).addClass('expanded');
+            });
+
+            $("h2.clickableJournalTitle").on("click", function() {
+                if ($(this).hasClass("expanded")) {
+                    $(this).removeClass("expanded");
+                    $(this).siblings(".body").hide('fast');
+                } else {
+                    $("h2").removeClass('expanded');
+                    $(this).addClass('expanded');
+                    $(".body").hide();
+                    $(this).siblings(".body").show('fast');
+                }
+                $('html, body').animate({ scrollTop: $(this).offset().top }, 0);
+            });
+            $("span.gameDate").html(function() {
+                return $(this).dateParse();
+            }).removeClass().addClass("modifiedData");
+        });
+    </script>
+</head>
+<body>
+{% cms_toolbar %}
+<div style="margin:0 auto">
+    <div style="height: 35px; width: 100%;"><ul class="nav">
+        {% show_menu 0 100 100 100 %}
+    </ul></div>
+    {% block content %}
+    {% endblock content %}
+</div>
+{% render_block "js" %}
+</body>
+</html>
